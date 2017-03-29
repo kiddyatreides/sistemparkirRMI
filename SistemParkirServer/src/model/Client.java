@@ -46,7 +46,8 @@ public class Client extends UnicastRemoteObject implements IClient {
     String noidentitas;
     String idparkir,idcustomer;
     String jeniskehilangan,keterangan,tanggalmasalah;
-    int denda;
+    String denda;
+    String waktukeluar,biaya;
 
     
     //login
@@ -145,11 +146,12 @@ public class Client extends UnicastRemoteObject implements IClient {
         {
             Koneksi kon = new Koneksi();
             Connection con = kon.getConnection();
-            String str = "INSERT kendaraan (plat_nomor, jenis) values (?,?)";
+            String str = "INSERT kendaraan (plat_nomor, jenis,wkt_tanggal) values (?,?,?)";
             PreparedStatement ps = con.prepareStatement(str);
 
             ps.setString(1,this.plat);
             ps.setString(2,this.jenis);
+            ps.setString(3,this.waktu);
             
             
             int i = ps.executeUpdate();
@@ -279,12 +281,12 @@ public class Client extends UnicastRemoteObject implements IClient {
         return this.tanggalmasalah;
     }
     
-    public void setDenda(int denda) {
+    public void setDenda(String denda) {
         this.denda  = denda;
     }
     
     @Override
-    public int getDenda() {
+    public String getDenda() {
         return this.denda;
     }
     
@@ -293,13 +295,12 @@ public class Client extends UnicastRemoteObject implements IClient {
         {
             Koneksi kon = new Koneksi();
             Connection con = kon.getConnection();
-            String str = "INSERT trouble (id_customer, jenis_masalah, keterangan,denda) values (?,?,?,?)";
+            String str = "INSERT trouble (id_customer, jenis_masalah, keterangan) values (?,?,?)";
             PreparedStatement ps = con.prepareStatement(str);
 
             ps.setString(1,this.idcustomer);
             ps.setString(2,this.jeniskehilangan);
             ps.setString(3,this.keterangan);
-            ps.setInt(4,this.denda);
             
             
             int i = ps.executeUpdate();
@@ -312,29 +313,33 @@ public class Client extends UnicastRemoteObject implements IClient {
         
     }
     
+    
+    
     //crud method
     @Override
-    public  ArrayList getKendaraan() throws RemoteException{
+    public  ArrayList getTrouble() throws RemoteException{
         ArrayList data = new ArrayList();
         try {
             Connection con = kon.getConnection();
-            String sql = "select * from kendaraan";
+            String sql = "select b.customer_name,a.jenis_masalah,a.tgl,a.keterangan,a.denda from trouble a inner join customer b on a.id_customer = b.id_customer order by a.tgl desc";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next())
             {
                 // using setter method to assign value of attribute
-                this.setIDParkir(rs.getString(1));
-                this.setPlatNomor(rs.getString(2));
-                this.setJenis(rs.getString(3));
-                this.setWaktu(rs.getString(4));
+                this.setIDCustomer(rs.getString(1));
+                this.setJenisKehilangan(rs.getString(2));
+                this.setKeterangan(rs.getString(3));
+                this.setDenda(rs.getString(4));
+                this.setTanggalMasalah(rs.getString(5));
                 
                 // using getter method too add value in arraylist
-                data.add(this.getIDParkir());
-                data.add(this.getPlatNomor());
-                data.add(this.getJenis());
-                data.add(this.getWaktu());
+                data.add(this.getIDCustomer());
+                data.add(this.getJenisKehilangan());
+                data.add(this.getKeterangan());
+                data.add(this.getDenda());
+                data.add(this.getTanggalMasalah());
                 
             }
         } 
@@ -346,13 +351,14 @@ public class Client extends UnicastRemoteObject implements IClient {
     
     //crud method
     @Override
-    public  ArrayList getTrouble() throws RemoteException{
+    public  ArrayList getTroubleID() throws RemoteException{
         ArrayList data = new ArrayList();
         try {
             Connection con = kon.getConnection();
-            String sql = "select * from trouble order by tgl";
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+            String sql = "select b.customer_name,a.jenis_masalah,a.tgl,a.keterangan,a.denda from trouble a inner join customer b on a.id_customer = b.id_customer where a.id_customer = ? order by a.tgl desc";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, this.nama);
+            ResultSet rs = ps.executeQuery();
             
             while(rs.next())
             {
@@ -360,7 +366,7 @@ public class Client extends UnicastRemoteObject implements IClient {
                 this.setIDCustomer(rs.getString(1));
                 this.setJenisKehilangan(rs.getString(2));
                 this.setKeterangan(rs.getString(3));
-                this.setDenda(rs.getInt(4));
+                this.setDenda(rs.getString(4));
                 this.setTanggalMasalah(rs.getString(5));
                 
                 // using getter method too add value in arraylist
@@ -380,7 +386,201 @@ public class Client extends UnicastRemoteObject implements IClient {
     
      //crud method
     @Override
+    public  ArrayList getListKendaraan() throws RemoteException{
+        ArrayList data = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            String sql = "select * from kendaraan where status = 'masuk' order by wkt_tanggal desc";
+            Statement st = con.createStatement();
+             rs = st.executeQuery(sql);
+            
+           while(rs.next())
+            {
+                // using setter method to assign value of attribute
+                this.setIDParkir(rs.getString(1));
+                this.setPlatNomor(rs.getString(2));
+                this.setJenis(rs.getString(3));
+                this.setWaktu(rs.getString(4));
+                
+                
+                // using getter method too add value in arraylist
+                data.add(this.getIDParkir());
+                data.add(this.getPlatNomor());
+                data.add(this.getJenis());
+                data.add(this.getWaktu());
+                
+                
+            }
+             
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+        }
+        return data;
+    }
+    
+    public void setWaktuKeluar(String waktukeluar) {
+        this.waktukeluar  = waktukeluar;
+    }
+    
+    @Override
+    public String getWaktuKeluar() {
+        return this.waktukeluar;
+    }
+    
+    public void setBiaya(String biaya) {
+        this.biaya  = biaya;
+    }
+    
+    @Override
+    public String getBiaya() {
+        return this.biaya;
+    }
+    
+     //crud method
+    @Override
+    public  ArrayList getDataKendaraan() throws RemoteException{
+        ArrayList data = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            String sql = "select * from kendaraan where plat_nomor = ? and status = 'masuk' order by wkt_tanggal desc";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, this.plat);
+            rs = ps.executeQuery();
+            
+           while(rs.next())
+            {
+                // using setter method to assign value of attribute
+                this.setPlatNomor(rs.getString(1));
+                this.setJenis(rs.getString(2));
+                this.setWaktu(rs.getString(3));
+                this.setWaktuKeluar(rs.getString(4));
+                this.setBiaya(rs.getString(5));
+                
+                // using getter method too add value in arraylist
+                data.add(this.getPlatNomor());
+                data.add(this.getJenis());
+                data.add(this.getWaktu());
+                data.add(this.getWaktuKeluar());
+                data.add(this.getBiaya());
+            }
+             
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+        }
+        return data;
+    }
+    
+     //crud method
+    @Override
+    public  int UpdateDataParkir() throws RemoteException{
+        ArrayList data = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            String sqlupdate = "update kendaraan set wkt_keluar = ? where plat_nomor =? and status = 'masuk'";
+            PreparedStatement psupdate = con.prepareStatement(sqlupdate);
+            psupdate.setString(1, this.waktukeluar);
+            psupdate.setString(2, this.plat);
+            
+            
+            
+            System.out.print("Success Update\n");
+            int i = psupdate.executeUpdate();
+            return i;
+            
+            
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+            return 0;
+        }
+     
+    }
+    
+    //crud method
+    @Override
+    public  ArrayList getJumlahWaktu() throws RemoteException{
+        ArrayList data1 = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            
+            String sql = "select TOP 1 biaya from kendaraan where plat_nomor = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, this.plat);
+            rs = ps.executeQuery();
+            
+           while(rs.next())
+            {
+                // using setter method to assign value of attribute
+                this.setBiaya(rs.getString(1));
+                
+                
+                // using getter method too add value in arraylist
+                data1.add(this.getBiaya());
+                
+                
+            }
+            
+             
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+        }
+        return data1;
+    }
+    
+     //crud method
+    @Override
     public  ArrayList getCustomer() throws RemoteException{
+        ArrayList data = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            String sql = "select * from customer where id_customer = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, this.idcustomer);
+            rs = ps.executeQuery();
+            
+           while(rs.next())
+            {
+                // using setter method to assign value of attribute
+                this.setIDCustomer(rs.getString(1));
+                this.setNama(rs.getString(2));
+                this.setTglLahir(rs.getString(3));
+                this.setJenisKelamin(rs.getString(4));
+                this.setJenisIdentitas(rs.getString(5));
+                this.setNoIdentitas(rs.getString(6));
+                this.setAlamat(rs.getString(7));
+                this.setNoHp(rs.getString(8));
+                
+                // using getter method too add value in arraylist
+                data.add(this.getIDCustomer());
+                data.add(this.getNama());
+                data.add(this.getTglLahir());
+                data.add(this.getJenisKelamin());
+                data.add(this.getJenisIdentitas());
+                data.add(this.getNoIdentitas());
+                data.add(this.getAlamat());
+                data.add(this.getNoHp());
+                
+                
+            }
+             
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+        }
+        return data;
+    }
+    
+     //crud method
+    @Override
+    public  ArrayList getCustomerID() throws RemoteException{
         ArrayList data = new ArrayList();
         Connection con = kon.getConnection(); 
         ResultSet rs;

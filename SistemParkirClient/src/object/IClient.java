@@ -32,6 +32,10 @@ public interface IClient extends Remote {
     public String getJenis() throws RemoteException;
     public void setWaktu(String Waktu) throws RemoteException;
     public String getWaktu() throws RemoteException;
+    public void setWaktuKeluar(String WaktuKeluar) throws RemoteException;
+    public String getWaktuKeluar() throws RemoteException;
+    public void setBiaya(String biaya) throws RemoteException;
+    public String getBiaya() throws RemoteException;
     public int SavePlatNomor() throws RemoteException;
     
     //customer
@@ -61,14 +65,19 @@ public interface IClient extends Remote {
     public String getKeterangan() throws RemoteException;
     public void setTanggalMasalah(String TanggalMasalah) throws RemoteException;
     public String getTanggalMasalah() throws RemoteException;
-    public void setDenda(int denda) throws RemoteException;
-    public int getDenda() throws RemoteException;
+    public void setDenda(String denda) throws RemoteException;
+    public String getDenda() throws RemoteException;
     public int SaveTrouble() throws RemoteException;
     
     //get Kendaraan
-      public ArrayList getKendaraan()throws RemoteException;
+      
       public ArrayList getCustomer() throws RemoteException;
+      public ArrayList getCustomerID() throws RemoteException;
       public ArrayList getTrouble() throws RemoteException;
-    
+      public ArrayList getTroubleID() throws RemoteException;
+      public ArrayList getListKendaraan() throws RemoteException;
+      public ArrayList getDataKendaraan() throws RemoteException;
+      public int UpdateDataParkir() throws RemoteException;
+      public ArrayList getJumlahWaktu() throws RemoteException;
     
 }

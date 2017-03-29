@@ -23,10 +23,14 @@ public class AddTrouble extends javax.swing.JFrame {
      */
     public AddTrouble() {
         initComponents();
-        Object columnName[] = {"ID Customer","Jenis Kehilangan","Keterangan","Tanggal"};
+        Object columnName[] = {"ID Customer","Jenis Kehilangan","Tanggal","Keterangan","Denda"};
         DefaultTableModel model =  new DefaultTableModel(columnName, 0);
         jTable2.setModel(model);
+        Object columnName2[] = {"ID Customer","Nama","Tanggal Lahir","Jenis Kelamin","Jenis Identitas","No Identitas","Alamat","No Hp"};
+        DefaultTableModel model2 =  new DefaultTableModel(columnName2,0);
+        jTable1.setModel(model2);
         popolatetable();
+        customertable();
     }
     
      private void popolatetable()
@@ -35,22 +39,60 @@ public class AddTrouble extends javax.swing.JFrame {
         {
            Registry reg = LocateRegistry.getRegistry("127.0.0.1", 9999);
             IClient obj = (IClient) reg.lookup("log");
-           ArrayList data = obj.getKendaraan();
+           ArrayList data = obj.getTrouble();
            
-           for (int i = 0; i< data.size(); i++)
+           for (int i = 0; i< data.size(); i+=5)
            {
                String idcustomer = data.get(i).toString();
                String jeniskehilangan = data.get(i+1).toString();
                String keterangan = data.get(i+2).toString();
-               String tanggal = data.get(i+3).toString();
+               String denda = data.get(i+3).toString();
+               String tanggal = data.get(i+4).toString();
                
-               String[] data_field = {idcustomer, jeniskehilangan, keterangan, tanggal};
+               String[] data_field = {idcustomer, jeniskehilangan, keterangan, denda , tanggal};
                DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
                model.addRow(data_field);
            }
             
         } 
         catch (Exception e) {
+        }
+    }
+     
+      private void customertable()
+    {
+        try 
+        {
+           Registry reg = LocateRegistry.getRegistry("127.0.0.1", 9999);
+            IClient obj = (IClient) reg.lookup("log");
+            ArrayList data = obj.getCustomer();
+            
+            
+            //jTable1.setModel(DbUtils.resultSetToTableModel(data));
+           //System.out.println(data.);
+           
+           for (int i = 0; i< data.size(); i+=8)
+           {
+               System.out.println("COOL");
+               String idcustomer = data.get(i).toString();
+               String nama = data.get(i+1).toString();
+               String tgllahir = data.get(i+2).toString();
+               String jeniskelamin = data.get(i+3).toString();
+               String jenisidentitas = data.get(i+4).toString();
+               String noidentitas = data.get(i+5).toString();
+               String alamat = data.get(i+6).toString();
+               String nohp = data.get(i+7).toString();
+               
+               
+               String[] data_field = {idcustomer, nama, tgllahir, jeniskelamin, jenisidentitas,noidentitas,alamat,nohp};
+               
+               DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+               model.addRow(data_field);
+           }
+            
+        } 
+        catch (Exception e) {
+            System.err.println(e);
         }
     }
 
@@ -144,7 +186,11 @@ public class AddTrouble extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
@@ -160,17 +206,16 @@ public class AddTrouble extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(0, 323, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +224,7 @@ public class AddTrouble extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -196,12 +241,12 @@ public class AddTrouble extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))))
                 .addGap(27, 27, 27)
-                .addComponent(jButton1)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
@@ -233,6 +278,7 @@ public class AddTrouble extends javax.swing.JFrame {
             {
                 System.out.println("cool");
                 JOptionPane.showMessageDialog(null, "Success");
+                
                 
             }
             else

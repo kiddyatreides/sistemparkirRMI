@@ -8,8 +8,10 @@ package sistemparkirclient;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.LocalAttribute;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 import javax.print.attribute.standard.DateTimeAtCompleted;
 import javax.swing.JOptionPane;
 import object.IClient;
@@ -106,11 +108,16 @@ public class AddParkiran extends javax.swing.JFrame {
             
             String plat = jTextField1.getText().toString();
             String jenis = "motor".toString();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            String waktu = dateFormat.format(date); //2016/11/16 12:08:43;
+            System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
             
             
             
             f.setPlatNomor(plat);
             f.setJenis(jenis);
+            f.setWaktu(waktu);
             
 
             

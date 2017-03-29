@@ -9,6 +9,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import object.IClient;
@@ -45,6 +46,7 @@ public class ListCustomer extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +56,11 @@ public class ListCustomer extends javax.swing.JFrame {
         jLabel2.setText("Search : ");
 
         jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -68,12 +75,20 @@ public class ListCustomer extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jButton2.setText("Reset");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 913, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -85,9 +100,10 @@ public class ListCustomer extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 913, Short.MAX_VALUE))
+                                .addComponent(jButton1)
+                                .addGap(59, 59, 59)
+                                .addComponent(jButton2)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -99,7 +115,8 @@ public class ListCustomer extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(46, Short.MAX_VALUE))
@@ -108,6 +125,71 @@ public class ListCustomer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try{
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+            popolatetable2();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+            popolatetable();
+            jTextField1.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+     private void popolatetable2()
+    {
+        try 
+        {
+           Registry reg = LocateRegistry.getRegistry("127.0.0.1", 9999);
+            IClient obj = (IClient) reg.lookup("log");
+            String search = jTextField1.getText();
+            obj.setIDCustomer(search);
+            ArrayList data = obj.getCustomer();
+            
+            
+            //jTable1.setModel(DbUtils.resultSetToTableModel(data));
+           //System.out.println(data.);
+           if (!data.isEmpty())
+           {
+               JOptionPane.showMessageDialog(null, "Data Found" ); 
+               for (int i = 0; i< data.size(); i+=8)
+           {
+               System.out.println("COOL");
+               String idcustomer = data.get(i).toString();
+               String nama = data.get(i+1).toString();
+               String tgllahir = data.get(i+2).toString();
+               String jeniskelamin = data.get(i+3).toString();
+               String jenisidentitas = data.get(i+4).toString();
+               String noidentitas = data.get(i+5).toString();
+               String alamat = data.get(i+6).toString();
+               String nohp = data.get(i+7).toString();
+               
+               
+               String[] data_field = {idcustomer, nama, tgllahir, jeniskelamin, jenisidentitas,noidentitas,alamat,nohp};
+               
+               DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+               model.addRow(data_field);
+           }
+           }
+           else{
+               JOptionPane.showMessageDialog(null, "Data Not Found" );
+           }
+           
+            
+        } 
+        catch (Exception e) {
+            System.err.println(e);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -117,12 +199,8 @@ public class ListCustomer extends javax.swing.JFrame {
         {
            Registry reg = LocateRegistry.getRegistry("127.0.0.1", 9999);
             IClient obj = (IClient) reg.lookup("log");
-            ArrayList data = obj.getCustomer();
+            ArrayList data = obj.getCustomerID();
             
-            
-            //jTable1.setModel(DbUtils.resultSetToTableModel(data));
-           //System.out.println(data.);
-           
            for (int i = 0; i< data.size(); i+=8)
            {
                System.out.println("COOL");
@@ -181,6 +259,7 @@ public class ListCustomer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

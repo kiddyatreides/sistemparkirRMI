@@ -7,6 +7,9 @@ package sistemparkirclient;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import object.IClient;
 
@@ -29,15 +32,20 @@ public class AddParkiranMobil extends javax.swing.JFrame {
          {
             Registry myRegistry = LocateRegistry.getRegistry("127.0.0.1", 9999);
             IClient f = (IClient) myRegistry.lookup("log");
-            System.out.println("cool");
+            //System.out.println("cool");
             
             String plat = jTextField1.getText().toString();
             String jenis = "mobil".toString();
+             DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            String waktu = dateFormat.format(date); //2016/11/16 12:08:43;
+            System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
             
             
             
             f.setPlatNomor(plat);
             f.setJenis(jenis);
+            f.setWaktu(waktu);
             
 
             
