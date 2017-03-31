@@ -86,54 +86,34 @@ public class AddParkiranMobil extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        setSize(new java.awt.Dimension(400, 300));
+        getContentPane().setLayout(null);
 
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(170, 140, 80, 23);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
         jLabel2.setText("Parkir Mobil");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(96, 35, 193, 25);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Plat Nomor");
+        jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel1.setText("Plat Nomor:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(85, 108, 80, 15);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(jLabel2)))
-                .addContainerGap(118, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel2)
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(jButton1)
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
+        jTextField1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(171, 105, 130, 21);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

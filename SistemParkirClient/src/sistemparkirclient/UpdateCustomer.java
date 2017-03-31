@@ -49,147 +49,103 @@ public class UpdateCustomer extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(500, 500));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
+        cb_jk.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         cb_jk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pria", "Wanita" }));
+        getContentPane().add(cb_jk);
+        cb_jk.setBounds(190, 400, 220, 20);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Jenis Identitas");
+        jLabel4.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel4.setText("Jenis Identitas :");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(80, 200, 88, 15);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Jenis Kelamin");
+        jLabel8.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel8.setText("Jenis Kelamin :");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(80, 400, 85, 15);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Nomor Identitas");
+        jLabel5.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel5.setText("Nomor Identitas :");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(80, 240, 100, 15);
 
-        tx_nomor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tx_nomor.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(tx_nomor);
+        tx_nomor.setBounds(190, 240, 220, 21);
 
+        cb_jenis.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         cb_jenis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "KTP", "SIM", "Kartu Pelajar", " " }));
+        getContentPane().add(cb_jenis);
+        cb_jenis.setBounds(190, 200, 220, 21);
 
         tx_alamat.setColumns(20);
+        tx_alamat.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
         tx_alamat.setRows(5);
         jScrollPane1.setViewportView(tx_alamat);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Alamat");
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(190, 270, 220, 71);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Nama");
+        jLabel6.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel6.setText("Alamat :");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(80, 270, 47, 15);
 
-        tx_nama.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel1.setText("Nama :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(80, 160, 41, 15);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Nomor HP");
+        tx_nama.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(tx_nama);
+        tx_nama.setBounds(190, 160, 220, 21);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel7.setText("Nomor HP :");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(80, 360, 67, 15);
+
+        jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
         jLabel2.setText("Update Customer");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(120, 20, 277, 44);
 
-        tx_hp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tx_hp.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(tx_hp);
+        tx_hp.setBounds(190, 360, 220, 21);
 
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton1.setText("Update");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(190, 440, 90, 23);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Search");
+        jLabel3.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel3.setText("Search :");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(80, 120, 60, 15);
 
-        tx_search.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tx_search.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(tx_search);
+        tx_search.setBounds(190, 120, 120, 21);
 
+        jButton2.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton2.setText("ID Search");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel1))
-                        .addGap(38, 38, 38)
-                        .addComponent(tx_hp, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel2)))
-                .addContainerGap(35, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cb_jenis, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tx_nomor, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tx_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(tx_search, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)
-                                .addGap(32, 32, 32)))
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addComponent(cb_jk, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(80, 80, 80))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tx_search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(tx_nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cb_jenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(tx_nomor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(tx_hp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(cb_jk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButton2);
+        jButton2.setBounds(320, 120, 90, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

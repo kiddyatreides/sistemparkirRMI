@@ -33,54 +33,33 @@ public class HomeSuperAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(null);
 
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
         jButton1.setText("Data Parkir");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(20, 140, 110, 90);
 
+        jButton2.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
         jButton2.setText("Customer");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(150, 140, 100, 90);
 
+        jButton3.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
         jButton3.setText("Kehilangan");
+        getContentPane().add(jButton3);
+        jButton3.setBounds(270, 140, 110, 90);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
         jLabel1.setText("Report Admin Panel");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(82, 82, 82))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jButton3)))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(99, 99, 99))
-        );
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 50, 295, 25);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

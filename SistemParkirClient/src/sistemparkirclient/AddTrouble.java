@@ -122,20 +122,36 @@ public class AddTrouble extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1200, 600));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1200, 600));
+        getContentPane().setLayout(null);
 
-        jidcustomer.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jidcustomer.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(jidcustomer);
+        jidcustomer.setBounds(160, 100, 170, 21);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
         jLabel2.setText("Add Trouble");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 30, 188, 25);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Jenis");
+        jLabel4.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel4.setText("Jenis :");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(30, 140, 50, 15);
 
+        cb_jenis.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         cb_jenis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Karcis Parkir", "STNK", "Lainnya" }));
+        getContentPane().add(cb_jenis);
+        cb_jenis.setBounds(160, 140, 170, 21);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("ID Customer");
+        jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel1.setText("ID Customer :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(30, 100, 100, 15);
 
+        jTable1.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -149,13 +165,23 @@ public class AddTrouble extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(350, 100, 804, 204);
+
         jketerangan.setColumns(20);
+        jketerangan.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jketerangan.setRows(5);
         jScrollPane1.setViewportView(jketerangan);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Keterangan");
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(160, 180, 170, 90);
 
+        jLabel5.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel5.setText("Keterangan :");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(30, 180, 80, 15);
+
+        jTable2.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -169,85 +195,28 @@ public class AddTrouble extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTable2);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(220, 350, 790, 199);
+
+        jLabel6.setFont(new java.awt.Font("Trajan Pro 3", 1, 18)); // NOI18N
         jLabel6.setText("Daftar Kehilangan");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(450, 320, 230, 30);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Trajan Pro 3", 1, 18)); // NOI18N
         jLabel7.setText("Customer List");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(350, 70, 190, 19);
 
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jidcustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cb_jenis, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jLabel2)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(0, 323, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jidcustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cb_jenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButton1);
+        jButton1.setBounds(160, 290, 75, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

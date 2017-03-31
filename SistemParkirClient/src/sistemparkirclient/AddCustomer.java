@@ -53,141 +53,100 @@ public class AddCustomer extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 500));
+        setResizable(false);
+        setSize(new java.awt.Dimension(400, 500));
+        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jLabel1.setText("Nama");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 100, 35, 15);
 
-        jnama.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jnama.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(jnama);
+        jnama.setBounds(170, 100, 170, 21);
 
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(170, 420, 90, 23);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
         jLabel2.setText("Add Customer");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(88, 32, 210, 25);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jLabel3.setText("Tanggal Lahir");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(50, 140, 79, 15);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jLabel4.setText("Jenis Identitas");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(50, 170, 82, 15);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jLabel5.setText("Nomor Identitas");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(50, 210, 98, 17);
 
-        jnoidentitas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jnoidentitas.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(jnoidentitas);
+        jnoidentitas.setBounds(170, 210, 170, 21);
 
+        ctgllahir.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         ctgllahir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ctgllahirActionPerformed(evt);
             }
         });
+        getContentPane().add(ctgllahir);
+        ctgllahir.setBounds(170, 130, 170, 23);
 
+        cb_jenis.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         cb_jenis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "KTP", "SIM", "Kartu Pelajar", " " }));
+        getContentPane().add(cb_jenis);
+        cb_jenis.setBounds(170, 170, 170, 21);
+
+        jScrollPane1.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
 
         jalamat.setColumns(20);
         jalamat.setRows(5);
         jScrollPane1.setViewportView(jalamat);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Alamat");
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(170, 240, 170, 96);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel6.setText("Alamat");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(50, 240, 41, 15);
+
+        jLabel7.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jLabel7.setText("Nomor HP");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(50, 350, 63, 17);
 
         jnohp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        getContentPane().add(jnohp);
+        jnohp.setBounds(170, 350, 170, 23);
 
+        cb_jk.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         cb_jk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pria", "Wanita" }));
+        getContentPane().add(cb_jk);
+        cb_jk.setBounds(170, 380, 170, 21);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jLabel8.setText("Jenis Kelamin");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(0, 4, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_jenis, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jnoidentitas, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jnama, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ctgllahir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(23, 23, 23))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addGap(38, 38, 38)
-                .addComponent(jnohp, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addComponent(cb_jk, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel8))
-                        .addGap(80, 80, 80))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(156, 156, 156))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel2)
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(ctgllahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cb_jenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jnoidentitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jnohp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(cb_jk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(50, 380, 79, 15);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

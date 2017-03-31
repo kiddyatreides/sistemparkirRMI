@@ -111,19 +111,33 @@ public class ListTrouble extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(850, 450));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
+        jLabel2.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jLabel2.setText("Search : ");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 110, 60, 15);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(90, 110, 178, 20);
 
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(290, 110, 90, 23);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
         jLabel1.setText("Daftar Masalah");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 30, 235, 25);
 
+        jTable1.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -137,51 +151,18 @@ public class ListTrouble extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(20, 140, 807, 270);
+
+        jButton2.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton2.setText("Reset");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(298, 298, 298)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addGap(48, 48, 48)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButton2);
+        jButton2.setBounds(400, 110, 80, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

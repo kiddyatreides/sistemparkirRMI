@@ -59,70 +59,112 @@ public class ParkirKeluar extends javax.swing.JFrame {
         btn_kembalian = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(550, 500));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Plat Nomor");
+        jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel1.setText("Plat Nomor :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(70, 100, 100, 15);
 
-        tx_plat.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tx_plat.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(tx_plat);
+        tx_plat.setBounds(160, 100, 160, 21);
 
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton1.setText("Done");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(250, 420, 90, 23);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
         jLabel2.setText("Parkir Sepeda Motor");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(110, 20, 323, 44);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Masuk");
+        jLabel3.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel3.setText("Masuk :");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(70, 180, 50, 15);
 
         tx_masuk.setEditable(false);
-        tx_masuk.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tx_masuk.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(tx_masuk);
+        tx_masuk.setBounds(160, 180, 250, 21);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Keluar");
+        jLabel4.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel4.setText("Keluar :");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(70, 220, 50, 15);
 
         tx_keluar.setEditable(false);
-        tx_keluar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tx_keluar.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(tx_keluar);
+        tx_keluar.setBounds(160, 220, 250, 21);
 
+        jButton2.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton2.setText("Kalkulasi");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(160, 260, 110, 23);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Biaya");
+        jLabel5.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel5.setText("Biaya :");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(70, 330, 50, 15);
 
         tx_biaya.setEditable(false);
-        tx_biaya.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tx_biaya.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(tx_biaya);
+        tx_biaya.setBounds(120, 330, 110, 21);
 
+        jButton3.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton3.setText("Search");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(330, 100, 80, 23);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Jenis");
+        jLabel7.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel7.setText("Jenis :");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(70, 140, 60, 15);
 
         tx_jenis.setEditable(false);
-        tx_jenis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tx_jenis.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(tx_jenis);
+        tx_jenis.setBounds(160, 140, 250, 21);
 
-        tx_bayar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tx_bayar.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(tx_bayar);
+        tx_bayar.setBounds(300, 330, 110, 21);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Bayar");
+        jLabel8.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel8.setText("Bayar :");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(240, 330, 50, 15);
 
         tx_kembalian.setEditable(false);
         tx_kembalian.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        getContentPane().add(tx_kembalian);
+        tx_kembalian.setBounds(300, 370, 110, 23);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Kembalian");
+        jLabel9.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel9.setText("Kembalian :");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(230, 370, 80, 15);
 
         btn_kembalian.setText("Kalkulasi");
         btn_kembalian.addActionListener(new java.awt.event.ActionListener() {
@@ -130,109 +172,8 @@ public class ParkirKeluar extends javax.swing.JFrame {
                 btn_kembalianActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(98, 98, 98)
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tx_biaya, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jLabel4)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(tx_keluar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tx_bayar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btn_kembalian))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(81, 81, 81)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(tx_plat, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(tx_jenis, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton3)
-                                        .addGap(8, 8, 8))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(tx_masuk, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(71, 71, 71)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(tx_kembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(tx_plat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(tx_jenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tx_masuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(tx_keluar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tx_biaya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(tx_bayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(btn_kembalian))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tx_kembalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(jButton1)
-                .addGap(26, 26, 26))
-        );
+        getContentPane().add(btn_kembalian);
+        btn_kembalian.setBounds(430, 330, 73, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

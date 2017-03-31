@@ -21,6 +21,7 @@ public interface IClient extends Remote {
     public String getUsername() throws RemoteException;
     public void setPassword(String password)throws RemoteException;
     public String getPassword() throws RemoteException;
+    
     public int doLogin()throws RemoteException;
     
     //save platnomor
@@ -77,8 +78,13 @@ public interface IClient extends Remote {
       public ArrayList getTroubleID() throws RemoteException;
       public ArrayList getListKendaraan() throws RemoteException;
       public ArrayList getDataKendaraan() throws RemoteException;
+      public ArrayList getDataKendaraan2() throws RemoteException;
       public int UpdateDataParkir() throws RemoteException;
       public ArrayList getJumlahWaktu() throws RemoteException;
+      public ArrayList getLogin() throws RemoteException;
+      
+      public ArrayList getPemasukan() throws RemoteException;
+      public ArrayList getPemasukan2() throws RemoteException;
     
     
 }

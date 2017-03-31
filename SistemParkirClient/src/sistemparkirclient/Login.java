@@ -43,9 +43,11 @@ public class Login extends javax.swing.JFrame {
             int i = f.doLogin();
             if(i > 0)
             {
-                
                 JOptionPane.showMessageDialog(null, "Success");
-                
+                Home cs = new Home();
+                cs.setLocationRelativeTo(null);
+                cs.setVisible(true);
+                this.hide();
             }
             else
             {
@@ -72,63 +74,40 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jLabel1.setText("Username :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(60, 140, 80, 15);
 
+        jLabel2.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jLabel2.setText("Password :");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(60, 180, 80, 15);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(170, 140, 160, 21);
+
+        jTextField2.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(170, 180, 160, 21);
+
+        jLabel3.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
         jLabel3.setText("Admin Panel Login");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(54, 33, 276, 25);
 
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jLabel3)))
-                .addContainerGap(114, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel3)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(jButton1)
-                .addContainerGap(84, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButton1);
+        jButton1.setBounds(170, 220, 80, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

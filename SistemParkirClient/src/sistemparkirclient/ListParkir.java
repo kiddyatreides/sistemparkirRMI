@@ -7,7 +7,10 @@ package sistemparkirclient;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import object.IClient;
 
@@ -53,6 +56,82 @@ public class ListParkir extends javax.swing.JFrame {
             System.out.println(e);
         }
     }
+    
+    private void popolatetable3()
+    {
+        try 
+        {
+           Registry reg = LocateRegistry.getRegistry("127.0.0.1", 9999);
+            IClient obj = (IClient) reg.lookup("log");
+            //String search = jXDatePicker1.getDate().toString();
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            String search = df.format(jXDatePicker1.getDate());
+            obj.setWaktu(search);
+            ArrayList data = obj.getDataKendaraan2();
+            
+            
+            //jTable1.setModel(DbUtils.resultSetToTableModel(data));
+           //System.out.println(data.);
+           if (!data.isEmpty())
+           {
+               JOptionPane.showMessageDialog(null, "Data Found" ); 
+                for (int i = 0; i< data.size(); i+=5)
+                {
+                    String idparkir = data.get(i).toString();
+                    String plat = data.get(i+1).toString();
+                    String jenis = data.get(i+2).toString();
+                    String tanggal = data.get(i+3).toString();
+
+                    String[] data_field = {idparkir, plat, jenis, tanggal};
+                    DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+                    model.addRow(data_field);
+                }
+           }
+           else{
+               JOptionPane.showMessageDialog(null, "Data Not Found" );
+           }
+           
+            
+        } 
+        catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+    
+    private void popolatetable2()
+    {
+        try 
+        {
+           Registry reg = LocateRegistry.getRegistry("127.0.0.1", 9999);
+            IClient obj = (IClient) reg.lookup("log");
+            String search = jTextField1.getText();
+            obj.setPlatNomor(search);
+            ArrayList data = obj.getDataKendaraan();
+           
+           if(!data.isEmpty()){
+               for (int i = 0; i< data.size(); i+=5)
+                {
+                    JOptionPane.showMessageDialog(null, "Data Found");
+                    String idparkir = data.get(i).toString();
+                    String plat = data.get(i+1).toString();
+                    String jenis = data.get(i+2).toString();
+                    String tanggal = data.get(i+3).toString();
+
+                    String[] data_field = {idparkir, plat, jenis, tanggal};
+                    DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+                    model.addRow(data_field);
+                }
+           }
+           else{
+               JOptionPane.showMessageDialog(null, "Data Not Found");
+           }
+           
+            
+        } 
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,9 +148,15 @@ public class ListParkir extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(700, 400));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
+        jTable1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -85,54 +170,85 @@ public class ListParkir extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(20, 130, 660, 210);
+
+        jLabel2.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jLabel2.setText("Search : ");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 100, 60, 15);
 
+        jTextField1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(80, 100, 130, 21);
+
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(220, 100, 90, 23);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
         jLabel1.setText("Daftar Parkiran");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 30, 270, 25);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 254, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(175, 175, 175))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1)
-                                .addGap(194, 194, 194))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jButton2.setText("Reset");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(330, 100, 61, 23);
+
+        jXDatePicker1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jXDatePicker1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jXDatePicker1);
+        jXDatePicker1.setBounds(450, 100, 160, 22);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         try{
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+            popolatetable2();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+            popolatetable();
+            jTextField1.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jXDatePicker1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXDatePicker1ActionPerformed
+        // TODO add your handling code here:
+        try{
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+            popolatetable3();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jXDatePicker1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,10 +287,12 @@ public class ListParkir extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     // End of variables declaration//GEN-END:variables
 }
