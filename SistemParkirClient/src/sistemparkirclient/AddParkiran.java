@@ -173,6 +173,7 @@ public class AddParkiran extends javax.swing.JFrame {
         {
             if(Validation() == 0){
                 SavePlatNomor();
+                jTextField1.setText("");
             }
         } 
         catch (Exception e) 

@@ -280,6 +280,13 @@ public class UpdateAdmin extends javax.swing.JFrame {
         }
         return flag;
     }
+      
+      private void clear(){
+          tx_search.setText("");
+          tx_nama.setText("");
+          tx_password.setText("");
+          tx_username.setText("");
+      }
      
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -287,6 +294,7 @@ public class UpdateAdmin extends javax.swing.JFrame {
         {
             if(Validation() == 0){
                 updateadmin();
+                clear();
             }
         }
         catch (Exception e)

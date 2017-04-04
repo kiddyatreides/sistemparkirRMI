@@ -219,6 +219,14 @@ public class UpdateCustomer extends javax.swing.JFrame {
             System.out.println(e);
         }
     }
+     
+     private void clear(){
+         tx_alamat.setText("");
+         tx_hp.setText("");
+         tx_nama.setText("");
+         tx_nomor.setText("");
+         tx_search.setText("");
+     }
     
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -246,6 +254,7 @@ public class UpdateCustomer extends javax.swing.JFrame {
             if(data > 0)
             {
                 JOptionPane.showMessageDialog(null, "Success" );
+                clear();
             }
             else
             {

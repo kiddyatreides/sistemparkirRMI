@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import object.IClient;
+import org.jdesktop.swingx.plaf.basic.CalendarState;
 
 /**
  *
@@ -226,10 +227,18 @@ public class AddAdmin extends javax.swing.JFrame {
        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }//GEN-LAST:event_formWindowClosing
 
+    private void clear(){
+        tx_nama.setText("");
+        tx_password.setText("");
+        tx_username.setText("");
+        tx_tanggallahir.setDate(null);
+    }
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         try{
             SaveCustomer();
+            clear();
         }
         catch(Exception e){
             System.out.println(e);

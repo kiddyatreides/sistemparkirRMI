@@ -169,6 +169,7 @@ public class AddParkiranMobil extends javax.swing.JFrame {
         try{
             if(Validation() == 0){
                 SavePlatNomor();
+                jTextField1.setText("");
             }
         }
         catch(Exception e){

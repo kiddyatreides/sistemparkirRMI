@@ -321,6 +321,11 @@ public class AddTrouble extends javax.swing.JFrame {
         return flag;
     }
     
+    private void clear(){
+        jidcustomer.setText("");
+        jketerangan.setText("");
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
          // TODO add your handling code here:
@@ -328,6 +333,7 @@ public class AddTrouble extends javax.swing.JFrame {
         {
             if(Validation() == 0){
                  SaveTrouble();
+                 clear();
                  DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
                  model.setRowCount(0);
                  popolatetable();

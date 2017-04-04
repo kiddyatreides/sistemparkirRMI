@@ -268,6 +268,14 @@ public class AddCustomer extends javax.swing.JFrame {
         return flag;
     }
     
+    private void clear(){
+     jnama.setText("");
+     jnohp.setText("");
+     jnoidentitas.setText("");
+     jalamat.setText("");
+     ctgllahir.setDate(null);
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try
@@ -275,6 +283,7 @@ public class AddCustomer extends javax.swing.JFrame {
             if(Validation() == 0)
             {
                 SaveCustomer();
+                clear();
             }
             
         }
