@@ -77,6 +77,8 @@ public interface IClient extends Remote {
       public ArrayList getTrouble() throws RemoteException;
       public ArrayList getTroubleID() throws RemoteException;
       public ArrayList getListKendaraan() throws RemoteException;
+      public ArrayList getListKendaraan2() throws RemoteException;
+      public ArrayList getListKendaraan3() throws RemoteException;
       public ArrayList getDataKendaraan() throws RemoteException;
       public ArrayList getDataKendaraan2() throws RemoteException;
       public int UpdateDataParkir() throws RemoteException;
@@ -85,6 +87,19 @@ public interface IClient extends Remote {
       
       public ArrayList getPemasukan() throws RemoteException;
       public ArrayList getPemasukan2() throws RemoteException;
+      
+      public void setIDAdmin(String IDAdmin) throws RemoteException;
+      public String getIDAdmin() throws RemoteException;
+      public void setStatus(String Status) throws RemoteException;
+      public String getStatus() throws RemoteException;
+      public ArrayList getAdmin() throws RemoteException;
+      public ArrayList getAdminID() throws RemoteException;
+      
+      public int SuperAdminLogin() throws RemoteException;
+      public int SaveAdmin() throws RemoteException;
+      public int UpdateAdmin() throws RemoteException;
+      public int UpdateCustomer() throws RemoteException;
+      
     
     
 }

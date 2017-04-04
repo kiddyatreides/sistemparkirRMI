@@ -10,6 +10,7 @@ import java.rmi.registry.Registry;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import object.IClient;
 
@@ -84,14 +85,21 @@ public class AddParkiranMobil extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(400, 300));
         setMinimumSize(new java.awt.Dimension(400, 300));
-        setSize(new java.awt.Dimension(400, 300));
+        setResizable(false);
+        setSize(new java.awt.Dimension(500, 300));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 24)); // NOI18N
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,35 +107,88 @@ public class AddParkiranMobil extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(170, 140, 80, 23);
+        jButton1.setBounds(180, 190, 120, 30);
 
-        jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Parkir Mobil");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(96, 35, 193, 25);
+        jLabel2.setBounds(30, 60, 320, 60);
 
-        jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
-        jLabel1.setText("Plat Nomor:");
+        jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Plat Nomor :");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(85, 108, 80, 15);
+        jLabel1.setBounds(20, 140, 130, 30);
 
-        jTextField1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Myriad Pro", 0, 24)); // NOI18N
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(171, 105, 130, 21);
+        jTextField1.setBounds(160, 140, 170, 30);
+
+        jButton4.setText("Back");
+        jButton4.setMaximumSize(new java.awt.Dimension(100, 35));
+        jButton4.setMinimumSize(new java.awt.Dimension(100, 35));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(10, 10, 55, 23);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\2560x1440-black-solid-color-background.jpg")); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 700, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private int Validation(){
+        int flag = 0;
+        String error = "";
+        
+        
+        if(jTextField1.getText().equals("")){
+            flag = 1;
+            error += "Plat Nomor Tidak Boleh Kosong.\n";
+        }
+      
+        if(flag == 0)
+        {
+            
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, error);
+        }
+        return flag;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-            SavePlatNomor();
+            if(Validation() == 0){
+                SavePlatNomor();
+            }
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error : " + e);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        Parkir cs = new Parkir();
+        cs.setLocationRelativeTo(null);
+        cs.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,8 +227,10 @@ public class AddParkiranMobil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

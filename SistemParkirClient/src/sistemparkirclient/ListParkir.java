@@ -10,6 +10,7 @@ import java.rmi.registry.Registry;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import object.IClient;
@@ -37,9 +38,9 @@ public class ListParkir extends javax.swing.JFrame {
         {
            Registry reg = LocateRegistry.getRegistry("127.0.0.1", 9999);
             IClient obj = (IClient) reg.lookup("log");
-           ArrayList data = obj.getListKendaraan();
+           ArrayList data = obj.getListKendaraan2();
            
-           for (int i = 0; i< data.size(); i+=5)
+           for (int i = 0; i< data.size(); i+=4)
            {
                String idparkir = data.get(i).toString();
                String plat = data.get(i+1).toString();
@@ -106,7 +107,7 @@ public class ListParkir extends javax.swing.JFrame {
             IClient obj = (IClient) reg.lookup("log");
             String search = jTextField1.getText();
             obj.setPlatNomor(search);
-            ArrayList data = obj.getDataKendaraan();
+            ArrayList data = obj.getListKendaraan3();
            
            if(!data.isEmpty()){
                for (int i = 0; i< data.size(); i+=5)
@@ -142,6 +143,7 @@ public class ListParkir extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -150,10 +152,18 @@ public class ListParkir extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(700, 400));
         setResizable(false);
+        setSize(new java.awt.Dimension(700, 400));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jTable1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
@@ -174,6 +184,7 @@ public class ListParkir extends javax.swing.JFrame {
         jScrollPane1.setBounds(20, 130, 660, 210);
 
         jLabel2.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Search : ");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(20, 100, 60, 15);
@@ -193,6 +204,7 @@ public class ListParkir extends javax.swing.JFrame {
         jButton1.setBounds(220, 100, 90, 23);
 
         jLabel1.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Daftar Parkiran");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(20, 30, 270, 25);
@@ -213,6 +225,19 @@ public class ListParkir extends javax.swing.JFrame {
         });
         getContentPane().add(jXDatePicker1);
         jXDatePicker1.setBounds(450, 100, 160, 22);
+
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(540, 20, 55, 23);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\2560x1440-black-solid-color-background.jpg")); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 700, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,6 +274,19 @@ public class ListParkir extends javax.swing.JFrame {
             System.out.println(e);
         }
     }//GEN-LAST:event_jXDatePicker1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        Home cs = new Home();
+        cs.setLocationRelativeTo(null);
+        cs.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,8 +326,11 @@ public class ListParkir extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;

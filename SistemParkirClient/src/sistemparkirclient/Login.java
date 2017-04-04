@@ -8,6 +8,7 @@ package sistemparkirclient;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import object.IClient;
 
@@ -63,6 +64,8 @@ public class Login extends javax.swing.JFrame {
          
          
      }
+    
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -72,34 +75,50 @@ public class Login extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1366, 768));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Username :");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(60, 140, 80, 15);
+        jLabel1.setBounds(520, 480, 120, 25);
 
-        jLabel2.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Myriad Pro", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password :");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(60, 180, 80, 15);
+        jLabel2.setBounds(520, 540, 120, 25);
 
-        jTextField1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Myriad Pro", 0, 24)); // NOI18N
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(170, 140, 160, 21);
+        jTextField1.setBounds(670, 480, 200, 40);
 
-        jTextField2.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Myriad Pro", 0, 24)); // NOI18N
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(170, 180, 160, 21);
+        jTextField2.setBounds(670, 540, 200, 40);
 
-        jLabel3.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Trajan Pro 3", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Admin Panel Login");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(54, 33, 276, 25);
+        jLabel3.setBounds(490, 370, 430, 60);
 
-        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 24)); // NOI18N
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +126,20 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(170, 220, 80, 23);
+        jButton1.setBounds(670, 610, 90, 30);
+
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(40, 670, 55, 23);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\login.jpg")); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 0, 1370, 770);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -123,6 +155,27 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error SIAJINGGG " + e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        LoginOption tr = new LoginOption();
+        tr.setLocationRelativeTo(null);
+        tr.setVisible(true);
+        //this.hide();
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        LoginOption cs = new LoginOption();
+        cs.setLocationRelativeTo(null);
+        cs.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,9 +214,11 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables

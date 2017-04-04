@@ -5,6 +5,10 @@
  */
 package sistemparkirclient;
 
+import java.awt.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kid
@@ -27,46 +31,126 @@ public class HomeSuperAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
+        setSize(new java.awt.Dimension(1366, 768));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
-        jButton1.setText("Data Parkir");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(20, 140, 110, 90);
-
         jButton2.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
-        jButton2.setText("Customer");
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\admin.jpg")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(150, 140, 100, 90);
+        jButton2.setBounds(810, 250, 200, 200);
 
-        jButton3.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
-        jButton3.setText("Kehilangan");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(270, 140, 110, 90);
-
-        jLabel1.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
-        jLabel1.setText("Report Admin Panel");
+        jLabel1.setFont(new java.awt.Font("Trajan Pro 3", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Super Admin Panel");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(50, 50, 295, 25);
+        jLabel1.setBounds(400, 80, 580, 70);
+
+        jButton5.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\displayreport.jpg")); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(380, 270, 200, 200);
+
+        jLabel3.setFont(new java.awt.Font("Myriad Pro", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Laporan Pemasukan");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(350, 500, 220, 25);
+
+        jLabel4.setFont(new java.awt.Font("Myriad Pro", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Parkir");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(430, 530, 80, 30);
+
+        jLabel6.setFont(new java.awt.Font("Myriad Pro", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Admin");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(880, 480, 90, 30);
+
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\checkin.jpg")); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(630, 530, 180, 180);
+
+        jLabel5.setFont(new java.awt.Font("Myriad Pro", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Logout");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(660, 720, 80, 25);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\background.jpg")); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1370, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        SuperadminAdmin tr = new SuperadminAdmin();
+        tr.setLocationRelativeTo(null);
+        tr.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        LaporanParkir tr = new LaporanParkir();
+        tr.setLocationRelativeTo(null);
+        tr.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure?", "Logout", JOptionPane.YES_NO_OPTION);
+        if(result==JOptionPane.YES_OPTION){
+
+            SuperadminLogin rm = new SuperadminLogin();
+            rm.setLocationRelativeTo(null);
+            rm.setVisible(true);
+            this.hide();
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,9 +188,14 @@ public class HomeSuperAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }

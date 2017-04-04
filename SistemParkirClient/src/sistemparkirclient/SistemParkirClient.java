@@ -5,6 +5,8 @@
  */
 package sistemparkirclient;
 
+import javax.swing.UIManager;
+
 /**
  *
  * @author Kid
@@ -16,6 +18,16 @@ public class SistemParkirClient {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        try{
+        //UIManager.setLookAndFeel("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");
+        LoginOption cs = new LoginOption();
+        cs.setLocationRelativeTo(null);
+        cs.setVisible(true);
+        }
+        catch(Exception e)
+        {
+            System.err.println("e");
+        }
     }
     
 }

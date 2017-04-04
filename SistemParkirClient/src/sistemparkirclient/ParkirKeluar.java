@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import object.IClient;
@@ -57,13 +58,22 @@ public class ParkirKeluar extends javax.swing.JFrame {
         tx_kembalian = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         btn_kembalian = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(550, 500));
         setResizable(false);
+        setSize(new java.awt.Dimension(550, 500));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Plat Nomor :");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(70, 100, 100, 15);
@@ -83,11 +93,13 @@ public class ParkirKeluar extends javax.swing.JFrame {
         jButton1.setBounds(250, 420, 90, 23);
 
         jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
-        jLabel2.setText("Parkir Sepeda Motor");
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Keluar Parkir ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(110, 20, 323, 44);
+        jLabel2.setBounds(160, 20, 323, 44);
 
         jLabel3.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Masuk :");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(70, 180, 50, 15);
@@ -98,6 +110,7 @@ public class ParkirKeluar extends javax.swing.JFrame {
         tx_masuk.setBounds(160, 180, 250, 21);
 
         jLabel4.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Keluar :");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(70, 220, 50, 15);
@@ -118,6 +131,7 @@ public class ParkirKeluar extends javax.swing.JFrame {
         jButton2.setBounds(160, 260, 110, 23);
 
         jLabel5.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Biaya :");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(70, 330, 50, 15);
@@ -138,6 +152,7 @@ public class ParkirKeluar extends javax.swing.JFrame {
         jButton3.setBounds(330, 100, 80, 23);
 
         jLabel7.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Jenis :");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(70, 140, 60, 15);
@@ -152,6 +167,7 @@ public class ParkirKeluar extends javax.swing.JFrame {
         tx_bayar.setBounds(300, 330, 110, 21);
 
         jLabel8.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Bayar :");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(240, 330, 50, 15);
@@ -162,6 +178,7 @@ public class ParkirKeluar extends javax.swing.JFrame {
         tx_kembalian.setBounds(300, 370, 110, 23);
 
         jLabel9.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Kembalian :");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(230, 370, 80, 15);
@@ -175,6 +192,19 @@ public class ParkirKeluar extends javax.swing.JFrame {
         getContentPane().add(btn_kembalian);
         btn_kembalian.setBounds(430, 330, 73, 23);
 
+        jButton4.setText("Back");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(30, 400, 80, 23);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\2560x1440-black-solid-color-background.jpg")); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, 0, 550, 500);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -182,6 +212,7 @@ public class ParkirKeluar extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             JOptionPane.showMessageDialog(null,"Success");
+            clear();
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error");
@@ -189,6 +220,16 @@ public class ParkirKeluar extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void clear(){
+        tx_bayar.setText("");
+        tx_biaya.setText("");
+        tx_jenis.setText("");
+        tx_keluar.setText("");
+        tx_kembalian.setText("");
+        tx_masuk.setText("");
+        tx_plat.setText("");
+    }
+    
     private void popolatetable2()
     {
         try 
@@ -293,6 +334,19 @@ public class ParkirKeluar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_kembalianActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+         Parkir cs = new Parkir();
+        cs.setLocationRelativeTo(null);
+        cs.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -333,11 +387,13 @@ public class ParkirKeluar extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

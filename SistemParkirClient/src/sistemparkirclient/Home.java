@@ -5,6 +5,7 @@
  */
 package sistemparkirclient;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,56 +36,95 @@ public class Home extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
-        setSize(new java.awt.Dimension(400, 300));
+        setSize(new java.awt.Dimension(1366, 768));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jButton1.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
-        jButton1.setText("Parkir");
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\parkir.jpg")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(150, 140, 100, 90);
+        jButton1.setBounds(560, 210, 200, 200);
 
         jButton2.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
-        jButton2.setText("Customer");
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\cust.jpg")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(40, 140, 100, 90);
+        jButton2.setBounds(230, 220, 200, 200);
 
         jButton3.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
-        jButton3.setText("Kehilangan");
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\kehilangan.jpg")); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(260, 140, 100, 90);
+        jButton3.setBounds(900, 210, 200, 200);
 
-        jLabel1.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Trajan Pro 3", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Admin Panel");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(110, 50, 182, 25);
+        jLabel1.setBounds(490, 80, 380, 60);
 
-        jButton4.setText("Logout");
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\checkin.jpg")); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(10, 10, 65, 23);
+        jButton4.setBounds(580, 500, 180, 180);
+
+        jLabel2.setFont(new java.awt.Font("Myriad Pro", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Customer");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(270, 440, 130, 20);
+
+        jLabel3.setFont(new java.awt.Font("Myriad Pro", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Parkir");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(630, 440, 63, 25);
+
+        jLabel4.setFont(new java.awt.Font("Myriad Pro", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Kehilangan");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(940, 440, 120, 25);
+
+        jLabel5.setFont(new java.awt.Font("Myriad Pro", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Logout");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(630, 690, 80, 25);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\background.jpg")); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(-4, 0, 1370, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -127,6 +167,11 @@ public class Home extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -168,6 +213,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

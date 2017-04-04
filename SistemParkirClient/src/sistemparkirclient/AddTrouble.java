@@ -8,6 +8,7 @@ package sistemparkirclient;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import object.IClient;
@@ -65,7 +66,7 @@ public class AddTrouble extends javax.swing.JFrame {
         {
            Registry reg = LocateRegistry.getRegistry("127.0.0.1", 9999);
             IClient obj = (IClient) reg.lookup("log");
-            ArrayList data = obj.getCustomer();
+            ArrayList data = obj.getCustomerID();
             
             
             //jTable1.setModel(DbUtils.resultSetToTableModel(data));
@@ -120,11 +121,18 @@ public class AddTrouble extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1200, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(1200, 600));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jidcustomer.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
@@ -132,11 +140,13 @@ public class AddTrouble extends javax.swing.JFrame {
         jidcustomer.setBounds(160, 100, 170, 21);
 
         jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Add Trouble");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(20, 30, 188, 25);
 
         jLabel4.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Jenis :");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(30, 140, 50, 15);
@@ -147,6 +157,7 @@ public class AddTrouble extends javax.swing.JFrame {
         cb_jenis.setBounds(160, 140, 170, 21);
 
         jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ID Customer :");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(30, 100, 100, 15);
@@ -163,6 +174,7 @@ public class AddTrouble extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane2.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane2);
@@ -177,6 +189,7 @@ public class AddTrouble extends javax.swing.JFrame {
         jScrollPane1.setBounds(160, 180, 170, 90);
 
         jLabel5.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Keterangan :");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(30, 180, 80, 15);
@@ -193,17 +206,20 @@ public class AddTrouble extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setEnabled(false);
         jScrollPane3.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(220, 350, 790, 199);
 
         jLabel6.setFont(new java.awt.Font("Trajan Pro 3", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Daftar Kehilangan");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(450, 320, 230, 30);
 
         jLabel7.setFont(new java.awt.Font("Trajan Pro 3", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Customer List");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(350, 70, 190, 19);
@@ -217,6 +233,19 @@ public class AddTrouble extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1);
         jButton1.setBounds(160, 290, 75, 23);
+
+        jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(10, 470, 55, 20);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\2560x1440-black-solid-color-background.jpg")); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 1200, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,6 +277,7 @@ public class AddTrouble extends javax.swing.JFrame {
                 System.out.println("cool");
                 JOptionPane.showMessageDialog(null, "Success");
                 
+            
                 
             }
             else
@@ -264,18 +294,64 @@ public class AddTrouble extends javax.swing.JFrame {
          
          
      }
+    
+    private int Validation(){
+        int flag = 0;
+        String error = "";
+        
+        
+        if(jidcustomer.getText().equals("")){
+            flag = 1;
+            error += "ID Customer Tidak Boleh Kosong.\n";
+        }
+        if(jketerangan.getText().equals("")){
+            flag = 1;
+            error += "Keterangan Tidak Boleh Kosong.\n";
+        }
+        
+      
+        if(flag == 0)
+        {
+            
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, error);
+        }
+        return flag;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
          // TODO add your handling code here:
          try 
         {
-          SaveTrouble();
+            if(Validation() == 0){
+                 SaveTrouble();
+                 DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+                 model.setRowCount(0);
+                 popolatetable();
+            }
+          
         } 
         catch (Exception e) 
         {
             JOptionPane.showMessageDialog(null, "Error : " + e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Trouble cs = new Trouble();
+        cs.setLocationRelativeTo(null);
+        cs.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,8 +391,10 @@ public class AddTrouble extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cb_jenis;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

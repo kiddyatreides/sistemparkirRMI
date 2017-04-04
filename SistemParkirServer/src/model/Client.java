@@ -48,6 +48,7 @@ public class Client extends UnicastRemoteObject implements IClient {
     String jeniskehilangan,keterangan,tanggalmasalah;
     String denda;
     String waktukeluar,biaya;
+    String idadmin,status;
 
     
     //login
@@ -60,6 +61,7 @@ public class Client extends UnicastRemoteObject implements IClient {
         return this.username;
     }
     
+    
     @Override
     public void setPassword(String password) {
         this.password = password;
@@ -70,13 +72,32 @@ public class Client extends UnicastRemoteObject implements IClient {
         return this.password;
     }
     
+    //login
+    @Override
+    public void setIDAdmin(String idadmin) {
+        this.idadmin = idadmin;
+    }
+    @Override
+    public String getIDAdmin() {
+        return this.idadmin;
+    }
+    
+    @Override
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    @Override
+    public String getStatus() {
+        return this.status;
+    }
+    
      public int doLogin()
     {
         int i = 0;
         try
         {
             Connection con = kon.getConnection();
-            String str = "SELECT COUNT (*) FROM administrator WHERE username = ? AND password = ?";
+            String str = "SELECT COUNT (*) FROM administrator WHERE username = ? AND password = ? AND status = 'aktif'";
             
             PreparedStatement pr = con.prepareStatement(str);
 
@@ -328,14 +349,14 @@ public class Client extends UnicastRemoteObject implements IClient {
             while(rs.next())
             {
                 // using setter method to assign value of attribute
-                this.setIDCustomer(rs.getString(1));
+                this.setNama(rs.getString(1));
                 this.setJenisKehilangan(rs.getString(2));
                 this.setKeterangan(rs.getString(3));
                 this.setDenda(rs.getString(4));
                 this.setTanggalMasalah(rs.getString(5));
                 
                 // using getter method too add value in arraylist
-                data.add(this.getIDCustomer());
+                data.add(this.getNama());
                 data.add(this.getJenisKehilangan());
                 data.add(this.getKeterangan());
                 data.add(this.getDenda());
@@ -394,6 +415,79 @@ public class Client extends UnicastRemoteObject implements IClient {
             String sql = "select * from kendaraan where status = 'masuk' order by wkt_tanggal desc";
             Statement st = con.createStatement();
              rs = st.executeQuery(sql);
+            
+           while(rs.next())
+            {
+                // using setter method to assign value of attribute
+                this.setIDParkir(rs.getString(1));
+                this.setPlatNomor(rs.getString(2));
+                this.setJenis(rs.getString(3));
+                this.setWaktu(rs.getString(4));
+                
+                
+                // using getter method too add value in arraylist
+                data.add(this.getIDParkir());
+                data.add(this.getPlatNomor());
+                data.add(this.getJenis());
+                data.add(this.getWaktu());
+                
+                
+            }
+             
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+        }
+        return data;
+    }
+    
+    //crud method
+    @Override
+    public  ArrayList getListKendaraan2() throws RemoteException{
+        ArrayList data = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            String sql = "select id_kendaraan,plat_nomor,jenis,wkt_tanggal from kendaraan where status = 'masuk' order by wkt_tanggal desc";
+            Statement st = con.createStatement();
+             rs = st.executeQuery(sql);
+            
+           while(rs.next())
+            {
+                // using setter method to assign value of attribute
+                this.setIDParkir(rs.getString(1));
+                this.setPlatNomor(rs.getString(2));
+                this.setJenis(rs.getString(3));
+                this.setWaktu(rs.getString(4));
+                
+                
+                // using getter method too add value in arraylist
+                data.add(this.getIDParkir());
+                data.add(this.getPlatNomor());
+                data.add(this.getJenis());
+                data.add(this.getWaktu());
+                
+                
+            }
+             
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+        }
+        return data;
+    }
+    
+    //crud method
+    @Override
+    public  ArrayList getListKendaraan3() throws RemoteException{
+        ArrayList data = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            String sql = "select id_kendaraan,plat_nomor,jenis,wkt_tanggal from kendaraan where id_kendaraan = ? and status = 'masuk' order by wkt_tanggal desc";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, this.plat);
+            rs = ps.executeQuery();
             
            while(rs.next())
             {
@@ -509,6 +603,8 @@ public class Client extends UnicastRemoteObject implements IClient {
         }
         return data;
     }
+    
+    
     
      //crud method
     @Override
@@ -752,5 +848,197 @@ public class Client extends UnicastRemoteObject implements IClient {
         }
         return data;
     }
+    
+     //crud method
+    @Override
+    public  ArrayList getAdminID() throws RemoteException{
+        ArrayList data = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            String sql = "select * from administrator where id_admin = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, this.idadmin);
+            rs = ps.executeQuery();
+            
+           while(rs.next())
+            {
+                // using setter method to assign value of attribute
+                this.setIDAdmin(rs.getString(1));
+                this.setNama(rs.getString(2));
+                this.setUsername(rs.getString(3));
+                this.setPassword(rs.getString(4));
+                this.setJenisKelamin(rs.getString(5));
+                this.setTglLahir(rs.getString(6));
+                this.setStatus(rs.getString(7));
+                
+                // using getter method too add value in arraylist
+                
+                data.add(this.getIDAdmin());
+                data.add(this.getNama());
+                data.add(this.getUsername());
+                data.add(this.getPassword());
+                data.add(this.getJenisKelamin());
+                data.add(this.getTglLahir());
+                data.add(this.getStatus());
+            }
+             
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+        }
+        return data;
+    }
+    
+    
+     //crud method
+    @Override
+    public  ArrayList getAdmin() throws RemoteException{
+        ArrayList data = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            String sql = "select * from administrator";
+            Statement st = con.createStatement();
+             rs = st.executeQuery(sql);
+            
+           while(rs.next())
+            {
+                // using setter method to assign value of attribute
+                this.setIDAdmin(rs.getString(1));
+                this.setNama(rs.getString(2));
+                this.setUsername(rs.getString(3));
+                this.setPassword(rs.getString(4));
+                this.setJenisKelamin(rs.getString(5));
+                this.setTglLahir(rs.getString(6));
+                this.setStatus(rs.getString(7));
+                
+                // using getter method too add value in arraylist
+                data.add(this.getIDAdmin());
+                data.add(this.getNama());
+                data.add(this.getUsername());
+                data.add(this.getPassword());
+                data.add(this.getJenisKelamin());
+                data.add(this.getTglLahir());
+                data.add(this.getStatus());
+                
+                
+            }
+             
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+        }
+        return data;
+    }
+    
+    public int SuperAdminLogin()
+    {
+        int i = 0;
+        try
+        {
+            Connection con = kon.getConnection();
+            String str = "SELECT COUNT (*) FROM superadmin WHERE username = ? AND password = ?";
+            
+            PreparedStatement pr = con.prepareStatement(str);
+
+            pr.setString(1, username.trim());
+            pr.setString(2, password.trim());
+            ResultSet rs = pr.executeQuery();
+            if (rs.next())
+            {
+                i = rs.getInt(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+        return i;
+        
+    }
+    
+     public int SaveAdmin() throws RemoteException{
+        try
+        {
+            Koneksi kon = new Koneksi();
+            Connection con = kon.getConnection();
+            String str = "INSERT administrator (nama, username, password, jenis_kelamin, tgl_lahir) values (?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(str);
+
+            ps.setString(1,this.nama);
+            ps.setString(2,this.username);
+            ps.setString(3,this.password);
+            ps.setString(4,this.jk);
+            ps.setString(5,this.tgllahir);
+            
+            int i = ps.executeUpdate();
+            return i;
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+            return 0;
+        }
+        
+    }
+     
+      //crud method
+    @Override
+    public  int UpdateAdmin() throws RemoteException{
+        ArrayList data = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            String sqlupdate = "update administrator set nama = ?, username = ?, password = ?, jenis_kelamin = ?, status = ? where id_admin = ? ";
+            PreparedStatement psupdate = con.prepareStatement(sqlupdate);
+            psupdate.setString(1, this.nama);
+            psupdate.setString(2, this.username);
+            psupdate.setString(3, this.password);
+            psupdate.setString(4, this.jk);
+            psupdate.setString(5, this.status);
+            psupdate.setString(6, this.idadmin);
+            
+            System.out.print("Success Update\n");
+            int i = psupdate.executeUpdate();
+            return i;
+            
+            
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+            return 0;
+        }
+     
+    }
+    
+    @Override
+    public  int UpdateCustomer() throws RemoteException{
+        ArrayList data = new ArrayList();
+        Connection con = kon.getConnection(); 
+        ResultSet rs;
+        try {
+            String sqlupdate = "update customer set customer_name = ?, jk = ?, jenis_identitas = ?, no_identitas = ?, alamat = ?,phoneno = ? where id_customer = ? ";
+            PreparedStatement psupdate = con.prepareStatement(sqlupdate);
+            psupdate.setString(1, this.nama);
+            psupdate.setString(2, this.jk);
+            psupdate.setString(3, this.jenisidentitas);
+            psupdate.setString(4, this.noidentitas);
+            psupdate.setString(5, this.alamat);
+            psupdate.setString(6, this.nohp);
+            psupdate.setString(7, this.idcustomer);
+            
+            System.out.print("Success Update\n");
+            int i = psupdate.executeUpdate();
+            return i;
+            
+            
+        } 
+        catch (Exception e) {
+            System.err.println("ProductCRUD Server: "+e);
+            return 0;
+        }
+     
+    }
+    
     
 }

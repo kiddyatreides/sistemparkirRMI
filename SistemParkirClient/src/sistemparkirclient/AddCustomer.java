@@ -9,6 +9,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import object.IClient;
 
@@ -34,6 +35,7 @@ public class AddCustomer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jnama = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -51,14 +53,24 @@ public class AddCustomer extends javax.swing.JFrame {
         jnohp = new javax.swing.JTextField();
         cb_jk = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+
+        jLabel9.setText("jLabel9");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(400, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(400, 500));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nama");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(50, 100, 35, 15);
@@ -77,22 +89,26 @@ public class AddCustomer extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(170, 420, 90, 23);
 
-        jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Add Customer");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(88, 32, 210, 25);
+        jLabel2.setBounds(38, 32, 340, 30);
 
         jLabel3.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tanggal Lahir");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(50, 140, 79, 15);
 
         jLabel4.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Jenis Identitas");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(50, 170, 82, 15);
 
         jLabel5.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nomor Identitas");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(50, 210, 98, 17);
@@ -125,11 +141,13 @@ public class AddCustomer extends javax.swing.JFrame {
         jScrollPane1.setBounds(170, 240, 170, 96);
 
         jLabel6.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Alamat");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(50, 240, 41, 15);
 
         jLabel7.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nomor HP");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(50, 350, 63, 17);
@@ -144,9 +162,23 @@ public class AddCustomer extends javax.swing.JFrame {
         cb_jk.setBounds(170, 380, 170, 21);
 
         jLabel8.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Jenis Kelamin");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(50, 380, 79, 15);
+
+        jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(290, 420, 55, 23);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kid\\Documents\\NetBeansProjects\\SistemParkirClient\\src\\imgprk\\2560x1440-black-solid-color-background.jpg")); // NOI18N
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(0, 0, 400, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,11 +235,48 @@ public class AddCustomer extends javax.swing.JFrame {
          
      }
     
+    private int Validation(){
+        int flag = 0;
+        String error = "";
+        
+        
+        if(jnama.getText().equals("")){
+            flag = 1;
+            error += "Nama Tidak Boleh Kosong.\n";
+        }
+        if(jnoidentitas.getText().equals("")){
+            
+            flag = 1;
+            error += "No Identitas Tidak Boleh Kosong.\n";
+        }
+        if(jalamat.getText().equals("")){
+            flag = 1;
+            error += "Alamat Tidak Boleh Kosong.\n";
+        }
+        if(jnohp.getText().equals("")){
+            flag = 1;
+            error += "No HP Tidak Boleh Kosong.\n";
+        }
+        if(flag == 0)
+        {
+            
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, error);
+        }
+        return flag;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try
         {
-            SaveCustomer();
+            if(Validation() == 0)
+            {
+                SaveCustomer();
+            }
+            
         }
         catch (Exception e)
         {
@@ -220,6 +289,19 @@ public class AddCustomer extends javax.swing.JFrame {
          DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
          
     }//GEN-LAST:event_ctgllahirActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Customer cs = new Customer();
+        cs.setLocationRelativeTo(null);
+        cs.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,7 +343,9 @@ public class AddCustomer extends javax.swing.JFrame {
     private javax.swing.JComboBox cb_jk;
     private org.jdesktop.swingx.JXDatePicker ctgllahir;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -269,6 +353,7 @@ public class AddCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jalamat;
     private javax.swing.JTextField jnama;
